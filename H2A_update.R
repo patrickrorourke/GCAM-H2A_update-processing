@@ -1,7 +1,7 @@
 # ---------------------------------------------------------------------------
 # Program Name:         H2A_update.R
 # Author:               Patrick O'Rourke, 
-# Date Last Updated:    7/7/21
+# Date Last Updated:    7/8/21
 # Program Purpose:      Update GCAM H2 production assumptions with latest NREL
 #                       H2A data (2018).
 # Input Files:
@@ -677,52 +677,52 @@
 #      Improvement beyond 2040 set to 0.1% each period, unless it exceeds the maximum improvement assumed above
        dplyr::mutate( X2045 = dplyr::if_else( 
          ( X2040 * ( 1 + 0.001 ) ) <= ( X2015 * ( 1 + max_improvement ) ),
-         X2040 * ( 1 + + 0.001 ),
+         X2040 * ( 1 + 0.001 ),
          ( X2015 * ( 1 + max_improvement )  ) ) ) %>% 
    
        dplyr::mutate( X2050 = dplyr::if_else( 
          ( X2045 * ( 1 + 0.001 ) ) <= ( X2015 * ( 1 + max_improvement ) ),
-         X2045 * ( 1 + + 0.001 ),
+         X2045 * ( 1 + 0.001 ),
          ( X2015 * ( 1 + max_improvement )  ) ) ) %>% 
        dplyr::mutate( X2055 = dplyr::if_else( 
          ( X2050 * ( 1 + 0.001 ) ) <= ( X2015 * ( 1 + max_improvement ) ),
-         X2050 * ( 1 + + 0.001 ),
+         X2050 * ( 1 + 0.001 ),
          ( X2015 * ( 1 + max_improvement )  ) ) ) %>% 
        dplyr::mutate( X2060 = dplyr::if_else( 
          ( X2055 * ( 1 + 0.001 ) ) <= ( X2015 * ( 1 + max_improvement ) ),
-         X2055 * ( 1 + + 0.001 ),
+         X2055 * ( 1 + 0.001 ),
          ( X2015 * ( 1 + max_improvement )  ) ) ) %>% 
        dplyr::mutate( X2065 = dplyr::if_else( 
          ( X2060 * ( 1 + 0.001 ) ) <= ( X2015 * ( 1 + max_improvement ) ),
-         X2060 * ( 1 + + 0.001 ),
+         X2060 * ( 1 + 0.001 ),
          ( X2015 * ( 1 + max_improvement )  ) ) ) %>% 
        dplyr::mutate( X2070 = dplyr::if_else( 
          ( X2065 * ( 1 + 0.001 ) ) <= ( X2015 * ( 1 + max_improvement ) ),
-         X2065 * ( 1 + + 0.001 ),
+         X2065 * ( 1 + 0.001 ),
          ( X2015 * ( 1 + max_improvement )  ) ) ) %>% 
        dplyr::mutate( X2075 = dplyr::if_else( 
          ( X2070 * ( 1 + 0.001 ) ) <= ( X2015 * ( 1 + max_improvement ) ),
-         X2070 * ( 1 + + 0.001 ),
+         X2070 * ( 1 + 0.001 ),
          ( X2015 * ( 1 + max_improvement )  ) ) ) %>% 
        dplyr::mutate( X2080 = dplyr::if_else( 
          ( X2075 * ( 1 + 0.001 ) ) <= ( X2015 * ( 1 + max_improvement ) ),
-         X2075 * ( 1 + + 0.001 ),
+         X2075 * ( 1 + 0.001 ),
          ( X2015 * ( 1 + max_improvement )  ) ) ) %>% 
        dplyr::mutate( X2085 = dplyr::if_else( 
          ( X2080 * ( 1 + 0.001 ) ) <= ( X2015 * ( 1 + max_improvement ) ),
-         X2080 * ( 1 + + 0.001 ),
+         X2080 * ( 1 + 0.001 ),
          ( X2015 * ( 1 + max_improvement )  ) ) ) %>% 
        dplyr::mutate( X2090 = dplyr::if_else( 
          ( X2085 * ( 1 + 0.001 ) ) <= ( X2015 * ( 1 + max_improvement ) ),
-         X2085 * ( 1 + + 0.001 ),
+         X2085 * ( 1 + 0.001 ),
          ( X2015 * ( 1 + max_improvement )  ) ) ) %>% 
        dplyr::mutate( X2095 = dplyr::if_else( 
          ( X2090 * ( 1 + 0.001 ) ) <= ( X2015 * ( 1 + max_improvement ) ),
-         X2090 * ( 1 + + 0.001 ),
+         X2090 * ( 1 + 0.001 ),
          ( X2015 * ( 1 + max_improvement )  ) ) ) %>% 
        dplyr::mutate( X2100 = dplyr::if_else( 
          ( X2095 * ( 1 + 0.001 ) ) <= ( X2015 * ( 1 + max_improvement ) ),
-         X2095 * ( 1 + + 0.001 ),
+         X2095 * ( 1 + 0.001 ),
          ( X2015 * ( 1 + max_improvement )  ) ) ) 
        
 # G. Create bio + CCS and extend coal w/CCS
