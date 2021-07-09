@@ -46,7 +46,7 @@
 #       1.) Multiple inputs considered? Impacts efficiencies only. 
 #           ( TRUE = multiple inputs have efficiencies, 
 #             FALSE = convert all to the H2A "feedstock" and sum for 1 efficiency)
-            multiple_inputs <- FALSE
+            multiple_inputs <- TRUE
 
 #   B.) Set WD
       setwd( "/Users/patrickorourke/Desktop/GCAM-H2A_update-processing/input" )
@@ -631,8 +631,8 @@
      bio_no_CCS_eff <- existing_coal_bio_eff %>% 
        dplyr::filter( technology == "biomass to H2" ) 
      
-     bio_no_CCS_improv_2040_eff <- bio_no_CCS_eff$improvement_to_2040
-     bio_no_CCS_improv_rate <- bio_no_CCS_eff$improvement_rate
+     bio_no_CCS_improv_2040_eff <- bio_no_CCS_eff$improvement_to_2040 # TODO: for multiple inputs, need to change this part of processing
+     bio_no_CCS_improv_rate <- bio_no_CCS_eff$improvement_rate        # TODO: for multiple inputs, need to change this part of processing
      
      add_coal_and_bio_eff <- existing_coal_bio_eff %>% 
        dplyr::select( sector.name, subsector.name, technology, minicam.non.energy.input,
@@ -645,7 +645,7 @@
                       technology = dplyr::if_else( subsector.name == "coal", 
                                                    "coal chemical",
                                    dplyr::if_else( subsector.name == "biomass", 
-                                                   "biomass to H2 CCS", NA_character_ ) ),
+                                                   "biomass to H2 CCS", NA_character_ ) ) ,
 #                     Set coal w/o CCS improvement equal to bio w/o CCS
                       improvement_to_2040 = dplyr::if_else( technology == "coal chemical",
                                                             bio_no_CCS_improv_2040_eff, NA_real_ ), 
